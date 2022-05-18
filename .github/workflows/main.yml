@@ -5,6 +5,21 @@ on: [push]
 jobs:
   rspec:
    runs-on: ubuntu-latest
+    container:
+      image: ruby:3.0.2
+
+    services:
+      postgres:
+        image: postgres:10.8
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: ""
+          POSTGRES_DB: postgres
+        ports:
+        - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
     - uses: actions/checkout@v1
 
@@ -26,6 +41,7 @@ jobs:
       run: |
         gem install bundler
         bundle install --jobs 4 --retry 3 --path vendor/bundle
+
     - name: Install yarn
       run: npm install -g yarn
 
@@ -44,8 +60,12 @@ jobs:
     - name: Yarn install
       run: yarn install
 
-    - name: Run tests
+    - name: Setup DB, Run tests
       env:
+        PGHOST: postgres
+        PGUSER: postgres
+        PGPORT: ${{ job.services.postgres.ports[5432] }}
         RAILS_ENV: test
       run: |
+        bin/rails db:create db:schema:load
         bundle exec rspec
