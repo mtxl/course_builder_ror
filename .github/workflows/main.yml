@@ -5,9 +5,8 @@ on: [push]
 jobs:
   rspec:
     name: "rspec"
-    runs-on: ubuntu-latest
-      container:
-        image: ruby:3.0.2
+    container:
+      image: ruby:3.0.2
     steps:
     - name: ls
       run: ruby -v
