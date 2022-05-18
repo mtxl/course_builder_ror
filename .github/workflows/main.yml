@@ -6,7 +6,8 @@ jobs:
   rspec:
    runs-on: ubuntu-latest
     container:
-      image: ruby:2.6.5
+      image: ruby:3.0.2
+
     steps:
     - uses: actions/checkout@v1
 
