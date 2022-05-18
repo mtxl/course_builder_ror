@@ -9,7 +9,6 @@ jobs:
     container:
       image: ruby:3.0.2
     steps:
-    - name: ls
-      run: ruby -v
+    - uses: actions/checkout@v1
 
 
