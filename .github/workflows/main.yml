@@ -6,8 +6,9 @@ jobs:
   rspec:
     name: "rspec"
     runs-on: ubuntu-latest
+      container: ruby-3.0.2
     steps:
     - name: ls
-      run: ls
+      run: ruby -v
 
 
