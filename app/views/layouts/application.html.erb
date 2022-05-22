@@ -1,16 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CourseBuilderRor</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>CourseBuilderRor</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+</head>
 
-  <body>
+<body style="height: 100vh;">
+<div class="columns" style="height: 100%;">
+  <div class="column is-one-fifth" style="height: 100%;">
+    <header class="pt-4" style="height: 100%; background: #e5e5e5">
+      <img class="px-4 pb-3" width="160" src="<%= '/logo.svg' %>" alt="Logo"/>
+
+      <nav class="menu">
+        <ul class="menu-list">
+          <li><a class="pl-4" href="<%= '/' %>">Home</a></li>
+          <% ['about', 'posts', 'courses', 'units'].each do |slug|
+            href = "/#{slug}"
+            title = slug.capitalize
+          %>
+            <li><a class="pl-4" href="<%= href %>"><%= title %></a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <main class="column p-5">
     <%= yield %>
-  </body>
+  </main>
+</div>
+</body>
 </html>
