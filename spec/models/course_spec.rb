@@ -29,6 +29,9 @@ RSpec.describe Course, type: :model do
   end
 
   context "scopes tests" do
+    count_active = Course.active.count
+    count_inactive = Course.inactive.count
+
     let(:params) { {      volume: "Content of the volume",      title: "Title",      price: 300,      active: true    } }
     before(:each) do
       Course.create(params)
@@ -39,11 +42,11 @@ RSpec.describe Course, type: :model do
     end
 
     it "should return all active articles" do
-      expect(Course.active.count).to eq(3)
+      expect(Course.active.count).to eq(count_active + 3)
     end
 
     it "should return all inactive articles" do
-      expect(Course.inactive.count).to eq(2)
+      expect(Course.inactive.count).to eq(count_inactive + 2)
     end
   end
 end
