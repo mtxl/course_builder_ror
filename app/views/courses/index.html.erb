@@ -4,9 +4,9 @@
   </div>
   <div class="column is-one-fifth">
     <div class="buttons is-right">
-      <button class="button is-success mt-3">
+      <a href="/courses/new" class="button is-success mt-3">
         + Новый курс
-      </button>
+      </a>
     </div>
   </div>
 </div>
@@ -22,7 +22,7 @@
       <div class="columns">
         <div class="column is-four-fifths">
           <p class="columns">Объем <%= course.volume %></p>
-          <a class="is-size-5 columns" href="#"><%= course.title %></a>
+          <a class="is-size-5 columns" href="<%= "/courses/#{course.id}/edit" %>"><%= course.title %></a>
         </div>
         <p class="column has-text-right is-size-5"><b><%= course.price %> $</b></p>
       </div>
