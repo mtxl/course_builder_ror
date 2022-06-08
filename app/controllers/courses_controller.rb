@@ -35,6 +35,10 @@ class CoursesController < ApplicationController
   private
 
   def course_params
-    params.require(:course).permit(:title, :volume, :price)
+    permited = params.require(:course).permit(:title, :volume, :price, units: [])
+    permited[:units] = Unit.find(permited[:units].select! {|unit| !unit.empty? })
+    p permited
+    # params.require(:course).permit(:title, :volume, :price, units: [])
+    permited
   end
 end
