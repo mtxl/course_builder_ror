@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   post 'courses', to: 'courses#create'
   get 'courses/:id/edit', to: 'courses#edit'
   put 'courses/:id', to: 'courses#update'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
+  
+  get 'units/:id/edit', to: 'units#edit'
+  put 'units/:id', to: 'units#update'
+
 
   # Defines the root path route ("/")
   root "courses#index"
