@@ -1,0 +1,25 @@
+<%=
+  govuk_table do |table|
+        table.caption(size: 'm', text: 'List of courses')
+
+        table.head do |head|
+        head.row do |row|
+        row.cell(header: true, text: 'Title', width: 'one-third')
+        row.cell(header: true, text: 'Volume', width: 'one-third')
+        row.cell(header: true, text: 'Price', numeric: true, width: 'one-third')
+
+        end; end;
+
+
+
+         @courses.each do |course|
+
+        table.body do |body|
+        body.row do |row|
+        row.cell(text: course.title)
+        row.cell(text: course.volume)
+        row.cell(text: course.price, numeric: true)
+
+        end; end;
+        end; end
+%>
