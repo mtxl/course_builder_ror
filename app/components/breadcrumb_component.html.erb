@@ -1,0 +1,13 @@
+<nav class="breadcrumb has-succeeds-separator breadcrumb is-medium" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="/">Курсы</a></li>
+    <li><% if is_course? %>
+          <a href="/courses/<%= choice_default_course %>/edit">Курс</a>
+        <% end %>
+    </li>
+    <li><% if is_unit? %>
+          <p><%= @unit.title %></p>
+        <% end %>
+    </li>
+  </ul>
+</nav>
