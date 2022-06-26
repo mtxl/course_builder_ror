@@ -3,13 +3,19 @@
 require "rails_helper"
 
 RSpec.describe BreadcrumbComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  it "renders breadcrumb menu" do
+    expect(
+      render_inline(BreadcrumbComponent.new(course: @course, unit: @unit)) { "Курсы" }.css("nav").to_html
+    ).to include(
+      "Курсы"
+    )
+  end
+
+   it "renders content" do
+    test_text = "Курсы"
+    render_inline(BreadcrumbComponent.new(course: @course, unit: @unit).with_content(test_text))
+
+    expect(page).to have_text(test_text)
+  end
 end
