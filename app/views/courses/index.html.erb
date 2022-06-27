@@ -1,22 +1,38 @@
-<div class="govuk-width-container">
-  <a href="#" class="govuk-back-link">Back</a>
-
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-xl">Two-thirds column</h1>
-        <p class="govuk-body">
-          This is a paragraph inside a two-thirds wide column
-        </p>
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m">One-third column</h2>
-        <p class="govuk-body">
-          This is a paragraph inside a one-third wide column
-        </p>
-      </div>
+<div class="columns">
+  <div class="column is-four-fifth is-flex is-flex-direction-column is-justify-content-center p-0">
+    <h1 class="has-text-left mb-0 mt-0 pb-0"> Список курсов </h1>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="buttons is-right">
+      <a href="/courses/new" class="button is-success mt-3">
+        + Новый курс
+      </a>
     </div>
-  </main>
+  </div>
 </div>
-1
+<hr class="mt-3">
+
+
+
+<div class="courses blocks">
+
+  <% @courses.each do |course| %>
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="columns">Объем <%= course.volume %></p>
+          <a class="is-size-5 columns" href="<%= "/courses/#{course.id}/edit" %>"><%= course.title %></a>
+        </div>
+        <p class="column has-text-right is-size-5"><b><%= course.price %> $</b></p>
+      </div>
+
+    </div>
+  <% end %>
+
+</div>
+<style>
+    .column a {
+        text-decoration: none;
+    }
+</style>
