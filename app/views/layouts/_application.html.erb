@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CourseBuilderRor</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'style' %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+  </head>
+  <body>
+    <div class="p-0 m-0 is-flex">
+      <div id="sidebar">
+        <header class="pt-4" style="height: 100%; background: #1f1f23">
+          <img class="px-4 pb-3" width="160" src="<%= '/logo.png' %>" alt="Logo"/>
+          <nav class="menu">
+            <ul class="menu-list">
+              <li><a class="pl-4<%= ' is-active' if request.path == '/'%>" href="/">Home </a></li>
+              <li><a class="pl-4<%= ' is-active' if request.path == '/courses'%>" href="/courses">Courses</a></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <main class="column content">
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>
