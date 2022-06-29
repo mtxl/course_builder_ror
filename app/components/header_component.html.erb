@@ -23,7 +23,7 @@
     <div class="navbar-item">
       <div class="buttons">
         <% if is_user_log_in? %>
-          <%= button_to 'Профиль', new_user_session_path, class: "button is-primary" %>
+          <%= link_to 'Профиль', edit_user_registration_path, class: "button is-primary" %>
           <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: "button is-light" %>
         <% else %>
           <%= link_to 'Войти', new_user_session_path, class: "button is-primary" %>

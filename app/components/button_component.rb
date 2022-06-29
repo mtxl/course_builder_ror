@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ButtonComponent < ViewComponent::Base
-  attr_accessor :title, :color, :action
-
   def initialize(title:, color:, action:)
     @title = title
     @color = color
@@ -10,13 +8,13 @@ class ButtonComponent < ViewComponent::Base
   end
 
   def change_color
-    if @color == "default"
+    case @color
+    when "white"
       return "has-background-white-bis"
-    elsif @color == "green"
+    when "green"
       return "is-success"
-    else
-      return "has-background-light"
     end
-  end
 
+    return "has-background-light"
+  end
 end
