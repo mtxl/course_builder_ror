@@ -11,11 +11,13 @@
   </head>
   <body>
     <%= render(HeaderComponent.new(user: current_user)) %>
-    
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
     <div class="p-0 m-0 is-flex">
       <div id="sidebar">
-        <header class="pt-4" style="height: 100%; background: #1f1f23">
-          <img class="px-4 pb-3" width="160" src="<%= '/logo.png' %>" alt="Logo"/>
+        <header class="pt-4 mt-6" style="height: 100%; background: #1f1f23">
           <nav class="menu">
             <ul class="menu-list">
               <li><a class="pl-4<%= ' is-active' if request.path == '/'%>" href="/">Home </a></li>
