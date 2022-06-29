@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'courses', to: 'courses#index'
   get 'courses/new', to: 'courses#new'
   post 'courses', to: 'courses#create'
