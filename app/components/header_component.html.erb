@@ -1,0 +1,36 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="http://localhost:3000/">
+      <%= image_tag("logo_cb.png", :alt => "Logo") %>
+    </a>
+
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        (Тут будет Breadcrumb)
+      </a>
+    </div>
+  </div>
+
+  <div class="navbar-end">
+    <div class="navbar-item">
+      <div class="buttons">
+        <% if is_user_log_in? %>
+          <%= button_to 'Профиль', new_user_session_path, class: "button is-primary" %>
+          <%= button_to 'Выйти', destroy_user_session_path, method: :delete, class: "button is-light" %>
+        <% else %>
+          <%= link_to 'Войти', new_user_session_path, class: "button is-primary" %>
+          <%= link_to 'Регистрация', new_user_registration_path, class: "button is-light" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  </div>
+</nav>

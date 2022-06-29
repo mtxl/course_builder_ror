@@ -10,6 +10,8 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
   <body>
+    <%= render(HeaderComponent.new(user: current_user)) %>
+    
     <div class="p-0 m-0 is-flex">
       <div id="sidebar">
         <header class="pt-4" style="height: 100%; background: #1f1f23">
