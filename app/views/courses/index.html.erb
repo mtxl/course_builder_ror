@@ -1,3 +1,23 @@
-<%# <%= render(CourseComponent.new(course: Course.find(1))) %>
-
-<%= render(CourseComponent.with_collection(Course.all)) %>
+<%# <%= render(Primer::CounterComponent.new(count: 25)) %> 
+<%# <%= render(Primer::BorderBoxComponent.new) do |component| %>
+<%= render(TableComponent.new(title: @title)) do |component| %>
+  <% component.header do |h| %>
+    <% h.title(tag: :h2) do %>
+      Header
+    <% end %>
+  <% end %>
+  <% component.body do %>
+    Body
+  <% end %>
+  <% component.row do %>
+    <% if true %>
+      Row one
+    <% end %>
+  <% end %>
+  <% component.row do %>
+    Row two
+  <% end %>
+  <% component.footer do %>
+    Footer
+  <% end %>
+<% end %>
