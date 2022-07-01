@@ -1,0 +1,17 @@
+<%# <div>Add Table template here</div> %>
+
+
+<span title="<%= @title %>"><%= content %></span>
+
+<%= grid(@courses_grid) do |g|
+  g.column :column_name => 'Title', :attribute_name => 'title'
+  g.column :column_name => 'Volume', :attribute_name => 'volume'
+  g.column  :column_name => 'Price', :attribute_name => 'price'
+  g.column  :column_name => 'Active', :attribute_name => 'active' do |course|
+    course.active? ? 'Yes' : 'No'
+  end
+
+  g.column   do |course|
+    link_to('Edit', edit_course_path(course))
+  end
+end -%>

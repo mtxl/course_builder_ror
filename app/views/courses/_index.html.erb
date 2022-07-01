@@ -1,13 +1,6 @@
 <%# <%= render(Primer::CounterComponent.new(count: 25)) %> 
 <%# <%= render(Primer::BorderBoxComponent.new) do |component| %>
-<%= render(TableComponent.new(
-      header: @header, 
-      body:   @body,
-      row:    @row,
-      footer: @footer
-                              )
-          ) do |component| %>
-          
+<%= render(TableComponent.new(title: @title)) do |component| %>
   <% component.header do |h| %>
     <% h.title(tag: :h2) do %>
       Header

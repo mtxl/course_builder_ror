@@ -1,8 +1,15 @@
-# frozen_string_literal: true
-
 class TableComponent < ViewComponent::Base
-  def initialize(title:)
-    @title = title
+    def initialize(header:
+                   , body:
+                   , row:
+                   , footer: )
+      @header = header, 
+      @body = body,
+      @row = row,
+      @footer = footer
+    end
+  
   end
-
-end
+  
+  
+  
