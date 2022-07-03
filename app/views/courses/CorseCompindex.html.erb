@@ -1,0 +1,30 @@
+<% render(CourseComponent.with_collection(Course.includes(:units).all)) %> 
+
+<%# <%= render(Primer::CounterComponent.new(count: 25)) %> 
+<%# <%= render(Primer::BorderBoxComponent.new) do |component| %>
+
+<%# <%= render(ExampleComponent.new(title: "my title")) do %> 
+  <%# Hello, World! %>
+<%# <% end %> 
+
+<%# <%= render(CourseComponent.new(
+     course:  @course,
+     course_counter: @course_counter
+                              )
+          ) do %>
+  <%# Hello, World! %>
+<%# <% end %> 
+
+
+
+<%# 
+
+<%= render(TableComponent.new(
+      header: @header, 
+      body:   @body,
+      row:    @row,
+      footer: @footer
+                              )
+          ) do %>
+  <%# Hello, World! %>
+<%# <% end %> 

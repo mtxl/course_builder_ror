@@ -1,0 +1,20 @@
+<table>
+  <thead><th>Course</th><th> unit</th><th> body</th></thead>
+  <tbody>
+    <% @courses.each do |c| %>
+    <% first_row = true %>
+    <% c.units.each do |b| %>
+      <tr>
+        <% if first_row == true %>
+          <td> <%= c.title %> </td>
+          <% first_row = false %>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td> <%= b.title %> </td>
+        <td> <%= b.body %> </td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

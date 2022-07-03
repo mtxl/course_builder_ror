@@ -1,4 +1,4 @@
 // Entry point for the build script in your package.json
 import "@hotwired/turbo-rails"
 import "./controllers"
-import '@primer/view-components'
+// import '@primer/view-components'

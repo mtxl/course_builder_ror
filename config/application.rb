@@ -13,8 +13,8 @@ require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 
-require "view_component"
-require "primer/view_components/engine"
+# require "view_component"
+#require "primer/view_components/engine"
 
 # require "rails/test_unit/railtie"
 
