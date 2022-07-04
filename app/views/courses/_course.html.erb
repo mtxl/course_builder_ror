@@ -1,7 +1,12 @@
 <%# <%= render(CourseComponent.with_collection(Course.includes(:units).all)) %>
- <%= render(CourseComponent.with_collection(Course.all)) %>
+ 
+ 
+ <% @courses.each do |course| %>
+
+
 <div>
-  <h2><%= @course_counter %> <%= @course.title %></h2>
-  <h4><%= number_to_currency(@course.price, :unit => "₽ ") %></h4>
-  <h4><%= @course.volume %></h4>
+  <h4><%= course.title %></h4>
+  <h4><%= number_to_currency(course.price, :unit => "₽ ") %></h4>
+  <h4><%= course.volume %></h4>
 </div>
+<% end %>

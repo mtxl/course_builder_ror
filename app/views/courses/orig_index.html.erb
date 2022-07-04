@@ -12,39 +12,25 @@
 </div>
 <hr class="mt-3">
 
-<%= render(CourseComponent.with_collection(Course.includes(:units).all)) %> 
- <% @courses.each do |course| %>
-<%# <%  @units.each do    |unit| %>
 
-  <%# <%= render(CourseComponent.with_collection(@courses)) %> 
-  
 
-<div>
-  <h4><%= course.title %></h4>
-  <h4><%= number_to_currency(course.price, :unit => "₽ ") %></h4>
-  <h4><%= course.volume %></h4>
-  <%# <h4><%= unit.title %>
+<div class="courses blocks">
+
+  <% @courses.each do |course| %>
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="columns">Объем <%= course.volume %></p>
+          <a class="is-size-5 columns" href="<%= "/courses/#{course.id}/edit" %>"><%= course.title %></a>
+        </div>
+        <p class="column has-text-right is-size-5"><b><%= course.price %> $</b></p>
+      </div>
+
+    </div>
+  <% end %>
+
 </div>
-<% end %>
-<%# <% end %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <style>
     .column a {
         text-decoration: none;

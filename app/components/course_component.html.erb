@@ -1,7 +1,7 @@
 <%# <%= render(CourseComponent.with_collection(Course.includes(:units).all)) %>
- <%= render(CourseComponent.with_collection(Course.all)) %>
-<div>
-  <h2><%= @course_counter %> <%= @course.title %></h2>
-  <h4><%= number_to_currency(@course.price, :unit => "₽ ") %></h4>
-  <h4><%= @course.volume %></h4>
-</div>
+
+<%# <%= link_to render(:partial => 'course'), root_url %>
+<%# <%= render(CourseComponent.new(title: "Title", volume: "Volume", price: "Price")) %> 
+
+<%= render(CourseComponent.with_collection(@courses)) %>
+ <%# <%= link_to render(:partial => 'course'), root_url %> 
