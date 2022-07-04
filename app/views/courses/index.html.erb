@@ -13,21 +13,27 @@
 <hr class="mt-3">
 
 <%= render(CourseComponent.with_collection(Course.includes(:units).all)) %> 
- <% @courses.each do |course| %>
-<%# <%  @units.each do    |unit| %>
 
-  <%# <%= render(CourseComponent.with_collection(@courses)) %> 
-  
-
-<div>
-  <h4><%= course.title %></h4>
-  <h4><%= number_to_currency(course.price, :unit => "₽ ") %></h4>
-  <h4><%= course.volume %></h4>
-  <%# <h4><%= unit.title %>
-</div>
-<% end %>
-<%# <% end %>
-
+<table>
+  <thead><th>Название курса</th><th> Название модуля</th><th> Описание модуля</th></thead>
+  <tbody>
+    <% @courses.each do |course| %>
+    <% first_row = true %>
+    <% course.units.each do |unit| %>
+      <tr>
+        <% if first_row == true %>
+        <td><a class="is-size-5 columns" href="<%= "/courses/#{course.id}/edit" %>"><%= course.title %></a></td>
+          <% first_row = false %>
+        <% else %>
+          <td></td>
+        <% end %>
+        <td><a class="is-size-5 columns" href="<%= "/units/#{unit.id}/edit" %>"><%= unit.title %></a></td>
+        <td> <%= unit.body %> </td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
 
 
 
