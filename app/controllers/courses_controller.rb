@@ -1,6 +1,4 @@
 class CoursesController < ApplicationController
-  before_action :set_breadcrumb, only: [:new, :edit]
-  
   def index
     @courses = Course.all
   end
@@ -57,9 +55,5 @@ class CoursesController < ApplicationController
 
   def unit_params
     params.require(:unit).permit(:title, :body)
-  end
-
-  def set_breadcrumb
-    @breadcrumb = request.fullpath
   end
 end
