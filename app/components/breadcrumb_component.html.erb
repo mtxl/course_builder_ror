@@ -1,0 +1,7 @@
+<nav class="breadcrumb has-succeeds-separator breadcrumb is-medium" aria-label="breadcrumbs">
+  <ul>
+    <% @breadcrumbs.each do |title, link| %>
+    <li><%= link_to title, link %></li>
+    <% end %>
+  </ul>
+</nav>

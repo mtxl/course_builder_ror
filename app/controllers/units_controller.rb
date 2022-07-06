@@ -1,4 +1,6 @@
 class UnitsController < ApplicationController
+  before_action :set_breadcrumb, :current_course, only: [:edit]
+  
   def create
     @course = Course.find(params[:article_id])
     @unit = @course.units.create(unit_params)
@@ -27,5 +29,14 @@ class UnitsController < ApplicationController
 
   def unit_params
     params.require(:unit).permit(:title, :body)
+  end
+
+  def set_breadcrumb
+    @breadcrumb = request.fullpath
+  end
+
+  def current_course
+    unit_course = UnitCourse.find_by(unit_id: params[:id])
+    @current_course = unit_course.course_id
   end
 end
