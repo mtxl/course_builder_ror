@@ -1,5 +1,6 @@
 class UnitsController < ApplicationController
-  before_action :set_breadcrumb, :current_course, only: [:edit]
+  before_action :set_breadcrumb, only: [:edit]
+  before_action :current_course, only: [:create, :edit]
   
   def create
     @course = Course.find(params[:article_id])
