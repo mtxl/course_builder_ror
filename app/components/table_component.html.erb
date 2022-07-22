@@ -1,0 +1,12 @@
+<table>
+  <thead>
+    <% column_names.each do |column_name| %>
+      <th><%= column_name %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% rows.each do |row| %>
+      <%= row %>
+    <% end %>
+  </tbody>
+</table>

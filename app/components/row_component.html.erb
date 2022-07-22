@@ -1,0 +1,6 @@
+<tr>
+  <% @object.attributes.each do |key, value| %>
+    <td id="<%= "#{dom_id(@object)}_#{key}" %>"><a href="<%= "/courses/#{@object.attributes["id"]}/edit" %>"><%= value %></a></td>
+  <% end %>
+</tr>
+
