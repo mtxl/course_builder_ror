@@ -1,15 +1,17 @@
-# frozen_string_literal: true
-
 require "rails_helper"
 
 RSpec.describe TableComponent, type: :component do
-  pending "add some examples to (or delete) #{__FILE__}"
 
-  # it "renders something useful" do
-  #   expect(
-  #     render_inline(described_class.new(attr: "value")) { "Hello, components!" }.css("p").to_html
-  #   ).to include(
-  #     "Hello, components!"
-  #   )
-  # end
+  it "renders TableComponent" do
+
+    render_inline TableComponent.new
+
+      expect(TableComponent.collection_parameter).to eq(:table)
+      expect(TableComponent.registered_slots[:rows][:collection]).to eq(true)
+
+      expect(
+             render_inline(TableComponent.new).css('table').to_html
+            ).to include('<table>')
+      
+    end
 end

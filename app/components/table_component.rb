@@ -1,8 +1,8 @@
-# frozen_string_literal: true
-
 class TableComponent < ViewComponent::Base
-  def initialize(title:)
-    @title = title
+  renders_many :rows, ->(object, component_class, **params) { component_class.new(object, **params) }
+  
+  def column_names
+    Course.new.attributes.keys
   end
-
+  
 end

@@ -1,23 +1,12 @@
-<%= @title %>
-<br>
-<br>
 <table>
-  <thead><th>Название курса</th><th> Название модуля</th><th> Описание модуля</th></thead>
-  <tbody>
-    <% Course.all.each do |course| %>
-    <% first_row = true %>
-    <% course.units.each do |unit| %>
-      <tr>
-        <% if first_row == true %>
-        <td><a class="is-size-5 columns" href="<%= "/courses/#{course.id}/edit" %>"><%= course.title %></a></td>
-          <% first_row = false %>
-        <% else %>
-          <td></td>
-        <% end %>
-        <td><a class="is-size-5 columns" href="<%= "/units/#{unit.id}/edit" %>"><%= unit.title %></a></td>
-        <td> <%= unit.body %> </td>
-      </tr>
+  <thead>
+    <% column_names.each do |column_name| %>
+      <th><%= column_name %></th>
     <% end %>
+  </thead>
+  <tbody>
+    <% rows.each do |row| %>
+      <%= row %>
     <% end %>
   </tbody>
 </table>
