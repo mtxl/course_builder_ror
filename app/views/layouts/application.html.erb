@@ -23,6 +23,9 @@
         </header>
       </div>
       <main class="column content">
+        <div class="block">
+          <%= render(BreadcrumbComponent.new(breadcrumb: @breadcrumb, breadcrumbs: @breadcrumbs, current_course: @current_course)) %>
+        </div>
         <%= yield %>
       </main>
     </div>
